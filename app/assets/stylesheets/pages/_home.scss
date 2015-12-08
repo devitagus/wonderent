@@ -2,3 +2,61 @@
  * SASS code SPECIFIC TO your home page
  * (margin/padding adjustments, background image, etc..)
  * ------------------------------------- */
+
+.banner {
+  background-image: image-url("eixample-arriba.jpg");
+  position: relative;
+  padding: 100px 0; /* use it to define size and be responsive*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  text-align: center;
+  // margin-bottom: 50px;
+  h1 {
+    font-family: 'Roboto';
+    font-size: 30px; /*mobile first*/
+    font-weight: 300;
+    @media (min-width: $screen-sm-min) {
+      font-size: 50px;
+    }
+  }
+  .container {
+    padding-bottom: 100px;
+  }
+
+}
+
+.img-gradient {
+  background: rgba(44, 62, 80, 0.5);
+  // background-image: linear-gradient(-225deg, rgba(0, 101, 1, 0.2) 0%, rgba(60, 80, 80, 0.3) 50%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.home-form {
+  .form-control {
+    height: 60px;
+    width: 30%;
+    // border: 4px solid;
+    border-color: white;
+    // background:rgba(0, 0, 0, 0.5);
+    font-family: 'Open Sans';
+    font-size: 20px;
+    -webkit-appearance: none;
+  }
+
+  .location {
+    width: 70%;
+  }
+  .btn.btn-primary {
+    // background: rgba(0, 0, 0, 0.5);
+    padding: 15px 15px;
+    font-size: 20px;
+  }
+}
+
+

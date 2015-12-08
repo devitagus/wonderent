@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  root to: 'homes#index'
+
+  # NESTED RESOURCES, so that review routes will have restaurant/id in the URL
+  # GET /restaurants/42/reviews/new
+  # POST /restaurants/42/reviews
+  resources :homes, only: [:index, :new, :show, :create] do
+      resources :reviews, only: [:index, :new, :create]
+  end
   devise_for :users
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.

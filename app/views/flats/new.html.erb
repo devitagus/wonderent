@@ -7,24 +7,41 @@ lorem
     <div class ="col-sm-6" >
       <div class = "lateral-padded">
 
-        <%= simple_form_for(@flat, html: { class: 'form-horizontal' }) do |f| %>
+      <%= form_for(@flat, html: { multipart: true }) do |f| %>
 
-        <%= f.input :title, label: 'Título de tu anuncio', error: 'El título es obligatorio' %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+        <%= f.label :city %>
+        <%= f.text_field :city %>
+        <%= f.label(:furnished, "Furnished?") %>
+        <%= f.check_box(:furnished) %>
+        <%= f.label :picture %>
+        <%= f.file_field :picture %>
 
-        <%= f.input :description %>
-
-        <%= f.input :address %>
-
-        <%= f.input :city %>
-
-        <%= f.input :furnished, as: :boolean %>
-
-        <%= f.input :picture, :label => "Upload an image" %>
+        <%#= file_field_tag "picture[]", type: :file, multiple: true %>
 
         <%= f.submit "Submit" %>
 
+      <% end %>
 
-       <% end %>
+
+
+
+        <%#= simple_form_for(@flat, html: { class: 'form-horizontal' }) do |f| %>
+        <%#= f.input :title, label: 'Título de tu anuncio', error: 'El título es obligatorio' %>
+        <%#= f.input :description %>
+        <%#= f.input :address %>
+        <%#= f.input :city %>
+        <%#= f.input :furnished, as: :boolean %>
+        <%#= f.input :picture, :label => "Upload an image" %>
+        <%#= f.submit "Submit" %>
+
+
+
 
 
 

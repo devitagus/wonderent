@@ -1,0 +1,16 @@
+<h1>Flats#index</h1>
+<p>Find me in app/views/flats/index.html.erb</p>
+lorem
+
+<% if @flats.empty? %>
+  <p>You have no Restaurants yet. Why not <%= link_to 'Add New', new_flat_path %>?</p>
+  <% else %>
+<!-- loop in restaurants array and display the restaurants -->
+  <% @flats.each do |flat| %>
+    <div>
+      <p><%= flat.title %> <%= link_to 'Show details', flat_path(flat) %></p>
+    </div>
+  <% end %>
+  <%= link_to 'Add New', new_flat_path %>?</p>
+
+<% end %>

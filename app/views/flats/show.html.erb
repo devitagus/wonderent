@@ -1,0 +1,25 @@
+<div class="container">
+<h1>Show Restaurants Details</h1>
+<p>Find me in app/views/restaurants/show.html.erb</p>
+
+<div class="row">
+  <div class="col-md-6">
+
+    <p><%= @flat.title %></p>
+
+    <% if @flat.picture.file? %>
+    <%= image_tag @flat.picture.url(:medium) %>
+    <% end %>
+
+    <p><%= @flat.address %></p>
+    <p><%= @flat.city %></p>
+    <p><%= @flat.furnished %></p>
+
+
+
+    <p><%= @flat.created_at %></p>
+    <p><%= @flat.id %></p>
+
+    <p><%= link_to 'Link to Index', root_path %></p>
+  </div>
+</div>

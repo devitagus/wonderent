@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'photos/index'
+
+  get 'photos/new'
+
+  get 'photos/create'
+
+  get 'photos/show'
+
+  get 'photos/edit'
+
+  get 'photos/destroy'
+
   devise_for :users
   root to: 'pages#home'
 

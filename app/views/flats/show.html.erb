@@ -1,24 +1,40 @@
 <div class="container">
-<h1>Show Restaurants Details</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2><%= @flat.title %></h2>
 
-<div class="row">
-  <div class="col-md-6">
+        <% if @photos.empty? %>
+        <p>no photos yet</p>
+        <% else %>
+        <div class="row">
+          <%= image_tag @photos.first.image.url(:medium), class: "img-responsive" %>
+        </div>
+        <div class="row">
+          <% @photos.each do |photo|  %>
+           <div class="col-md-3">
+            <%= image_tag photo.image.url(:thumb), class: "img-responsive" %>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
 
-    <p><%= @flat.title %></p>
+      <hr>
+      <h6>Descripción</h6>
+      <p><%= @flat.description %></p>
+      <hr>
+      <h6>Dirección</h6>
+      <p><%= @flat.address %></p>
+      <p><%= @flat.city %></p>
+      <hr>
+      <h6>Caracteristicas</h6>
+      <% if @flat.furnished == false %>
+      <p><strike>furnished</strike></p>
+      <% else %>
+      <p>furnished</p>
+      <% end %>
 
-    <% if @flat.picture.file? %>
-    <%= image_tag @flat.picture.url(:medium) %>
-    <% end %>
-
-    <p><%= @flat.address %></p>
-    <p><%= @flat.city %></p>
-    <p><%= @flat.furnished %></p>
-
-
-
-    <p><%= @flat.created_at %></p>
-    <p><%= @flat.id %></p>
+      <p><%= @flat.created_at %></p>
+      <p><%= @flat.id %></p>
 
     <p><%= link_to 'Link to Index', root_path %></p>
   </div>

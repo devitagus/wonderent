@@ -7,6 +7,7 @@ class FlatsController < ApplicationController
   end
 
   def show
+    @photos = @flat.photos
   end
 
   def new
@@ -15,7 +16,13 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
+
     if @flat.save
+      if params[:image]
+        params[:image].each do |image|
+          @flat.photos.create(image: image)
+        end
+      end
       flash[:notice] = "Your flat was created."
       redirect_to flat_path(@flat.id)
     else
